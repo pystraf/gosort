@@ -23,7 +23,7 @@
 
 // From https://github.com/golang/go/blob/dev.boringcrypto.go1.18/src/sort/sort.go
 // Downloaded at May 13, 2023.
-// Modified by pysoft in 2023 to use in MayanSort.
+// Modified by pysoft in 2023.
 
 // Original File Header:
 // Copyright 2009 The Go Authors. All rights reserved.
@@ -225,7 +225,7 @@ namespace gosort {
 
     template<typename RandomAccessIterator, typename Comp>
     void quicksort(RandomAccessIterator first, RandomAccessIterator last, Comp comp) {
-        typedef typename MayanSort::ItSize<RandomAccessIterator> Size;
+        typedef typename std::iterator_traits<RandomAccessIterator>::difference_type Size;
         Size sz = std::distance(first, last);
         _quick_sort_loop(first, (Size)0, sz, _max_depth(sz), comp);
     }
